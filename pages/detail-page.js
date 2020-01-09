@@ -1,7 +1,9 @@
 function submitComment() {
     // gather data
-    const name = document.querySelector('#name').value;
-    const msg = document.querySelector('#msg').value;
+    const inputField = document.getElementById("name");
+    const name = inputField.value;
+    const textArea = document.getElementById("msg");
+    const msg = textArea.value;
 
     // create elements necessary
     const comment = document.createElement('section');
@@ -14,7 +16,12 @@ function submitComment() {
     comment.classList.add('comment');
     comment.appendChild(h3);
     comment.appendChild(p);
-    console.log(comment);
+    
+    // display the elements on the page
+    const commentSection = document.getElementById('comments');
+    commentSection.appendChild(comment);
 
-
+    // reset form values
+    inputField.value = null;
+    textArea.value = null;
 }
